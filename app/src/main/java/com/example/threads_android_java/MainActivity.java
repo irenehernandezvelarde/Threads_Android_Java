@@ -56,8 +56,13 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("INFO:", res);
                         TextView tv = findViewById(R.id.textView);
                         tv.append(res);
-                        adapter.notifyDataSetChanged();
 
+                    }
+                });
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
                     }
                 });
             }
