@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,16 +23,23 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
+    ArrayList<String> lista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        lista = new ArrayList<>();
+        lista.add("Item 1");
+        lista.add("Item 2");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
 
         Button button = findViewById(R.id.boton);
         button.setOnClickListener(new View.OnClickListener(){
@@ -44,11 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("INFO:", res);
                         TextView tv = findViewById(R.id.textView);
                         tv.append(res);
-                        handler.post(new Runnable() {
-                            @Override public void run() {
-                                //UI Thread work here
-                            }
-                        });
+
                     }
                 });
             }

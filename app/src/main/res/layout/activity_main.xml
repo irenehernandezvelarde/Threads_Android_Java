@@ -24,8 +24,20 @@
         android:layout_height="188dp"
         app:layout_constraintBottom_toTopOf="@+id/boton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.124" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="374dp"
+        android:layout_height="226dp"
+        android:layout_marginBottom="161dp"
+        app:layout_constraintBottom_toTopOf="@+id/boton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
