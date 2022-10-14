@@ -37,11 +37,13 @@ public class MainActivity extends AppCompatActivity {
             @Override public void onClick(View view) {
                 ExecutorService executor = Executors.newSingleThreadExecutor();
                 Handler handler = new Handler(Looper.getMainLooper());
-
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
-                        Log.i("INFO:", getDataFromUrl("https://api.myip.com"));
+                        String res = getDataFromUrl("https://api.myip.com");
+                        Log.i("INFO:", res);
+                        TextView tv = findViewById(R.id.textView);
+                        tv.setText(res);
                         handler.post(new Runnable() {
                             @Override public void run() {
                                 //UI Thread work here
