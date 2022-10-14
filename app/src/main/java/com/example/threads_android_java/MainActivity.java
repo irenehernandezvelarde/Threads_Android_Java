@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         String res = getDataFromUrl("https://api.myip.com");
                         Log.i("INFO:", res);
                         TextView tv = findViewById(R.id.textView);
-                        tv.setText(res);
+                        tv.append(res);
                         handler.post(new Runnable() {
                             @Override public void run() {
                                 //UI Thread work here
