@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Threads_Android_Java.iml" filepath="$PROJECT_DIR$/.idea/modules/Threads_Android_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Threads_Android_Java.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Threads_Android_Java.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Threads_Android_Java.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Threads_Android_Java.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Threads_Android_Java.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Threads_Android_Java.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Threads_Android_Java.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Threads_Android_Java.app.unitTest.iml" />
     </modules>
   </component>
 </project>
