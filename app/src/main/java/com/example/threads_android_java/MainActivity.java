@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         lista.add("Item 1");
         lista.add("Item 2");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        ListView lv = findViewById(R.id.listView);
+        lv.setAdapter(adapter);
 
         Button button = findViewById(R.id.boton);
         button.setOnClickListener(new View.OnClickListener(){
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("INFO:", res);
                         TextView tv = findViewById(R.id.textView);
                         tv.append(res);
+                        adapter.notifyDataSetChanged();
 
                     }
                 });
