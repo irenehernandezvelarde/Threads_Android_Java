@@ -40,40 +40,44 @@ public class MainActivity extends AppCompatActivity {
         lista = new ArrayList<>();
         lista.add("Item 1");
         lista.add("Item 2");
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,lista);
         ListView lv = findViewById(R.id.listView);
         lv.setAdapter(adapter);
-
+        TextView tv = findViewById(R.id.textView);
         Button button = findViewById(R.id.boton);
         button.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(View view) {
+
                 ExecutorService executor = Executors.newSingleThreadExecutor();
                 Handler handler = new Handler(Looper.getMainLooper());
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
                         String res = getDataFromUrl("https://api.myip.com");
-                        Log.i("INFO:", res);
-                        TextView tv = findViewById(R.id.textView);
-                        tv.append(res);
+                        Log.i("MYINFO:", res);
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                tv.append(res);
+                                lista.add(res);
+                                adapter.notifyDataSetChanged();
+
+                            }
+                        });
 
                     }
                 });
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        adapter.notifyDataSetChanged();
-                    }
-                });
+
             }
         });
     }
+
+    String error = ""; // string field
     private String getDataFromUrl(String demoIdUrl) {
 
         String result = null;
         int resCode;
         InputStream in;
-        String error = "";
         try {
             URL url = new URL(demoIdUrl);
             URLConnection urlConn = url.openConnection();
@@ -103,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return result;
     }
+
 }
